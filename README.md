@@ -3,7 +3,6 @@
 This repository contains a collection of actionable demos for partners to showcase the latest Google Cloud Data & AI features to their clients.
 
 ## February 2026 Suite
-The February release focuses on **BigQuery Global Queries**, **Direct Governance Policies**, and **Managed MCP** for agentic workflows.
 
 ### BigQuery Demos
 - [BigQuery Global Queries](./partner-demos-feb-2026/bq_global_queries_demo.ipynb): Join datasets across multiple regions with zero data movement.
