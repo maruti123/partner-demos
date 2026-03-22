@@ -7,22 +7,32 @@ A developer needs to perform complex, multi-step visual tasks (like using the GC
 
 ## Steps
 
-### 1. Enable Browser subagent
-The browser agent is an experimental subagent. Enable it in your `~/.gemini/settings.json`:
+### 1. Install Chrome DevTools MCP Server
+Install the MCP server globally. If you're behind a corporate proxy, use the public registry flag to avoid 403 errors.
+```bash
+npm install -g chrome-devtools-mcp --registry https://registry.npmjs.org
+```
+
+### 2. Configure Gemini CLI
+Add the following to your `~/.gemini/settings.json`. You need both the **browser agent** enabled and the **MCP server** configured:
 ```json
 {
   "agents": {
     "overrides": {
       "browser_agent": { "enabled": true }
     }
+  },
+  "mcpServers": {
+    "chrome-devtools": {
+      "command": "chrome-devtools-mcp"
+    }
   }
 }
 ```
-
-### 2. Install Chrome DevTools Extension
-Install the extension to provide the agent with specialized browser skills and the `chrome-devtools` MCP server in a single step.
+Verify the connection:
 ```bash
-gemini extensions install --auto-update https://github.com/ChromeDevTools/chrome-devtools-mcp
+gemini mcp list
+# Should show: chrome-devtools: chrome-devtools-mcp (stdio) - Connected
 ```
 
 ### 3. Visual Task Execution (Computer Use)
@@ -39,9 +49,9 @@ gemini "Use the browser to go to https://github.com/google-gemini/gemini-cli/rel
 
 ## Things to remember or know
 - **Architecture (Subagent Pattern)**: The CLI uses a **Master/Specialist** pattern. The main agent delegates complex web tasks to the `browser_agent` subagent, which maintains a stateful browser session via the Chrome DevTools MCP.
-- **Context Compression**: By using a subagent, the \"noisy\" step-by-step browser data (screenshots, accessibility trees) stays within the subagent's internal loop, keeping your main session chat history clean and efficient.
+- **Context Compression**: By using a subagent, the "noisy" step-by-step browser data (screenshots, accessibility trees) stays within the subagent's internal loop, keeping your main session chat history clean and efficient.
 - **Advanced Configuration**: You can customize the subagent in your `settings.json` under `agents.overrides.browser_agent.customConfig`:
     - `sessionMode`: `persistent` (default), `isolated` (temporary), or `existing` (attach to running Chrome).
     - `headless`: Set to `false` to see the browser window during execution.
 - **Visual vs. Semantic**: The agent uses the **Accessibility Tree** for reliable element identification and a **Visual Model** (e.g., Gemini 2.5 Computer Use) for coordinate-based interactions.
-- **YOLO Mode**: For automated scripts, use the `--yolo` flag to allow the agent to click and navigate without manual confirmation for every step.
+- **Non-interactive Mode (CI/CD)**: For automated pipelines, use the `--yolo` flag to allow the agent to click and navigate without manual confirmation for every step.
