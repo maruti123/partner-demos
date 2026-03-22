@@ -1,36 +1,47 @@
-# Demo: Gemini CLI Browser Agent (v0.31.0)
+# Demo: Gemini CLI Browser Agent (Computer Use)
 
-This walkthrough demonstrates the new **Experimental Browser Agent** in Gemini CLI, which allows you to interact with live web pages directly from your terminal.
+This walkthrough demonstrates the **Experimental Browser Agent** subagent in Gemini CLI, which enables semantic and visual web browsing directly from the terminal. This feature was introduced in **[PR #19284](https://github.com/google-gemini/gemini-cli/pull/19284)**.
 
 ## Use Case
-A developer needs to extract the latest pricing information from a competitor's website or check the status of a cloud service without leaving their terminal.
+A developer needs to perform complex, multi-step visual tasks (like using the GCP Pricing Calculator) or extract data from dynamic JS-heavy sites without leaving the IDE.
 
 ## Steps
 
-### 1. Update Gemini CLI
-Ensure you are on the latest version (v0.31.0+).
-```bash
-gemini update
-gemini --version
+### 1. Enable Browser subagent
+The browser agent is an experimental subagent. Enable it in your `~/.gemini/settings.json`:
+```json
+{
+  "agents": {
+    "overrides": {
+      "browser_agent": { "enabled": true }
+    }
+  }
+}
 ```
 
-### 2. Enable the Browser Agent
-The browser agent is an experimental feature that uses a headless browser to "see" and "interact" with web pages.
-
-### 3. Multi-Step Navigation & Interaction
-Ask Gemini to find specific information that requires clicking through multiple pages.
+### 2. Install Chrome DevTools Extension
+Install the extension to provide the agent with specialized browser skills and the `chrome-devtools` MCP server in a single step.
 ```bash
-gemini "Open https://cloud.google.com/products, use the browser to scroll down and find the 'AI and Machine Learning' section, click on 'Vertex AI', then on the Vertex AI page click on 'Pricing' in the top navigation, and tell me the per-1,000,000-token price for Gemini 3.1 Pro input."
+gemini extensions install --auto-update https://github.com/ChromeDevTools/chrome-devtools-mcp
 ```
 
-### 4. Form Filling & Dynamic UI Interaction (Computer Use)
-Perform a task that requires typing into fields, selecting dropdowns, and reading dynamically rendered results. This forces the browser agent to use visual computer-use capabilities.
+### 3. Visual Task Execution (Computer Use)
+Ask Gemini to perform a task that requires visual interaction — selecting dropdowns, filling fields, and reading dynamically rendered results.
 ```bash
 gemini "Use the browser to go to https://cloud.google.com/products/calculator. Click 'Add to estimate', then select 'Compute Engine'. In the form, set Machine type to 'n2-standard-4', change the region dropdown to 'us-central1', set 'Number of instances' to 3, and then take a screenshot of the estimated cost summary panel on the right side."
 ```
 
+### 4. Multi-Page Navigation & Research
+Ask Gemini to navigate across multiple pages, following links and extracting information that requires understanding page context.
+```bash
+gemini "Use the browser to go to https://github.com/google-gemini/gemini-cli/releases, find the most recent release, click into it, and summarize the top 5 changes listed in the release notes."
+```
+
 ## Things to remember or know
-- **Visual Agency**: The agent doesn't just "fetch" the HTML; it "renders" the page and interacts with elements like a human would.
-- **JavaScript Support**: Ideal for single-page applications (SPAs) and sites that depend on dynamic content.
-- **Developer Productivity**: Drastically reduces context switching between the IDE/Terminal and the Browser.
-- **Agentic Workflows**: This can be integrated into larger shell scripts for automated market research or system health checks.
+- **Architecture (Subagent Pattern)**: The CLI uses a **Master/Specialist** pattern. The main agent delegates complex web tasks to the `browser_agent` subagent, which maintains a stateful browser session via the Chrome DevTools MCP.
+- **Context Compression**: By using a subagent, the \"noisy\" step-by-step browser data (screenshots, accessibility trees) stays within the subagent's internal loop, keeping your main session chat history clean and efficient.
+- **Advanced Configuration**: You can customize the subagent in your `settings.json` under `agents.overrides.browser_agent.customConfig`:
+    - `sessionMode`: `persistent` (default), `isolated` (temporary), or `existing` (attach to running Chrome).
+    - `headless`: Set to `false` to see the browser window during execution.
+- **Visual vs. Semantic**: The agent uses the **Accessibility Tree** for reliable element identification and a **Visual Model** (e.g., Gemini 2.5 Computer Use) for coordinate-based interactions.
+- **YOLO Mode**: For automated scripts, use the `--yolo` flag to allow the agent to click and navigate without manual confirmation for every step.
