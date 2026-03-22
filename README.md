@@ -13,7 +13,6 @@ The February release focuses on **BigQuery Global Queries**, **Direct Governance
 ### AI & Agentic Development Demos
 - [ADK Mastery: Dynamic Skills](./partner-demos-feb-2026/adk_skills_mastery_demo.ipynb): On-demand instruction loading for complex agent workflows.
 - [Managed MCP: BigQuery](./partner-demos-feb-2026/mcp_bigquery_demo.ipynb): High-performance data analysis using the BigQuery MCP server.
-- [Managed MCP: Firestore](./partner-demos-feb-2026/mcp_firestore_demo.ipynb): Using Firestore as a tool via the Model Context Protocol (MCP).
 - [Gemini 3.1 Flash Image](./partner-demos-feb-2026/gemini_3_1_flash_image_demo.ipynb): High-quality image generation with state-of-the-art prompt adherence.
 - [Gemini CLI Browser Agent](./partner-demos-feb-2026/gemini_cli_browser_agent.md): (Markdown Walkthrough) Interact with live web pages directly from the terminal.
 
