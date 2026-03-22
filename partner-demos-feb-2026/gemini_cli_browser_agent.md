@@ -20,7 +20,7 @@ The browser agent is an experimental feature that uses a headless browser to "se
 ### 3. Multi-Step Navigation & Interaction
 Ask Gemini to find specific information that requires clicking through multiple pages.
 ```bash
-gemini "Open https://cloud.google.com/products, use the browser to scroll down and find the 'AI and Machine Learning' section, click on 'Vertex AI', then on the Vertex AI page click on 'Pricing' in the top navigation, and tell me the per-1000-character price for Gemini 2.5 Pro input."
+gemini "Open https://cloud.google.com/products, use the browser to scroll down and find the 'AI and Machine Learning' section, click on 'Vertex AI', then on the Vertex AI page click on 'Pricing' in the top navigation, and tell me the per-1,000,000-token price for Gemini 3.1 Pro input."
 ```
 
 ### 4. Form Filling & Dynamic UI Interaction (Computer Use)
