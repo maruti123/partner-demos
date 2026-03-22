@@ -17,4 +17,4 @@ The February release focuses on **BigQuery Global Queries**, **Direct Governance
 - [Gemini CLI Browser Agent](./partner-demos-feb-2026/gemini_cli_browser_agent.md): (Markdown Walkthrough) Interact with live web pages directly from the terminal.
 
 ---
-*Maintained by the Partner AI team.*
+*Maintained by the Partner Data & AI team.*
