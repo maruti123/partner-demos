@@ -16,4 +16,33 @@ This repository contains a collection of actionable demos for partners to showca
 - [Gemini CLI Browser Agent](./partner-demos-feb-2026/gemini_cli_browser_agent.md): (Markdown Walkthrough) Interact with live web pages directly from the terminal.
 
 ---
+
+## March 2026 Suite (Preview)
+The March release showcases **BigQuery AI Functions**, **ADK A2A Interoperability**, **SecOps Automation**, and **Enterprise Data Discovery** across 7 demos.
+
+### BigQuery & Data Intelligence
+
+| Demo | GCP Features | ADK Features | Key Takeaway |
+|------|-------------|--------------|--------------|
+| [Conversational Analytics](./partner-demos-march-2026/bq_conversational_analytics_demo.ipynb) | `ObjectRef` (GCS ↔ BQ), `AI.FORECAST`, `AI.DETECT_ANOMALIES`, partitioned tables, job labels | BigQueryToolset, BigQueryToolConfig | Multi-modal analytics: forecast sales, detect anomalies, and cross-reference GCS receipt images — all via natural language |
+| [Dataplex Catalog Discovery](./partner-demos-march-2026/bq_dataplex_catalog_demo.ipynb) | Dataplex Catalog search, BigQuery schema retrieval | BigQueryToolset (Dataplex search tool) | Agent autonomously discovers unknown tables by searching enterprise metadata, then queries them |
+| [Agentic Data Migrations](./partner-demos-march-2026/bq_migration_mcp_demo.ipynb) | BQMS Managed MCP (SQL translation), DTS Managed MCP (data transfers), GCS | McpToolset, StreamableHTTPConnectionParams | Zero-glue migration: translate Hive SQL → GoogleSQL and schedule data transfers via Managed MCP servers |
+
+### Agentic AI & ADK
+
+| Demo | GCP Features | ADK Features | Key Takeaway |
+|------|-------------|--------------|--------------|
+| [A2A Protocol](./partner-demos-march-2026/adk_multi_agent_a2a_demo.ipynb) | Vertex AI (Gemini 3.1 Pro) | A2A Protocol, `RemoteA2aAgent`, `to_a2a()`, agent card discovery | Cross-service agent collaboration: a manager agent delegates to a remote specialist over the A2A handshake |
+| [Enterprise Search Approaches](./partner-demos-march-2026/adk_skills_discovery_engine_demo.ipynb) | Discovery Engine (Vertex AI Search), BigQuery (`AI.EMBED`, `AI.SIMILARITY`) | SkillToolset, DiscoveryEngineSearchTool, BigQueryToolset, ExecuteBashTool | Three search patterns compared: BQ vector similarity (RAG), Discovery Engine search, and agentic search (Bash) |
+| [ADK Prompt Optimizer](./partner-demos-march-2026/adk_prompt_optimizer_demo.ipynb) | Vertex AI (Gemini 3.1 Pro) | `adk optimize` command, GEPA root agent optimizer | Systematic prompt engineering: evaluate baseline vs. optimized agent instructions against ground truth |
+
+### Industry Solutions
+
+| Demo | GCP Features | ADK Features | Key Takeaway |
+|------|-------------|--------------|--------------|
+| [SecOps Agentic Automation](./partner-demos-march-2026/secops_agentic_automation_demo.ipynb) | Google SecOps (Chronicle SOAR) Agentic Automation, Vertex AI | Runner, Slack integration (opt-in) | Hybrid workflow: AI agent investigates threat severity, deterministic code blocks IP; Slack alerts if configured (ADK 1.28) |
+
+> **Common to all March demos**: ADK v1.28.0, Runner pattern with `InMemorySessionService`, Vertex AI auth (`GOOGLE_GENAI_USE_VERTEXAI`), Gemini 3.1 Pro (Preview).
+
+---
 *Maintained by the Partner Data & AI team.*
