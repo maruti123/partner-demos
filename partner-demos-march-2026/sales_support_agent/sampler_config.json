@@ -1,9 +1,0 @@
-{
-  "eval_config": {
-    "criteria": {
-      "response_match_score": 0.5
-    }
-  },
-  "app_name": "sales_support_agent",
-  "train_eval_set": "train_eval_set"
-}
