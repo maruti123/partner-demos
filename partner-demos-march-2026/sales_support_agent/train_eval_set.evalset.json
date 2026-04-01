@@ -1,0 +1,152 @@
+{
+  "eval_set_id": "train_eval_set",
+  "name": "train_eval_set",
+  "eval_cases": [
+    {
+      "eval_id": "case_0",
+      "conversation": [
+        {
+          "invocation_id": "3a4d1ec8-b31c-4428-8328-19491bd3e099",
+          "user_content": {
+            "parts": [
+              {
+                "text": "What is the warranty period for the ProCamera X1?"
+              }
+            ],
+            "role": "user"
+          },
+          "final_response": {
+            "parts": [
+              {
+                "text": "The ProCamera X1 comes with a 24-month standard international warranty."
+              }
+            ],
+            "role": "model"
+          }
+        }
+      ],
+      "session_input": {
+        "app_name": "sales_support_agent",
+        "user_id": "user"
+      },
+      "creation_timestamp": 1775018586.678678
+    },
+    {
+      "eval_id": "case_1",
+      "conversation": [
+        {
+          "invocation_id": "c1d19280-f69b-4f0b-86f1-8bc70caf745b",
+          "user_content": {
+            "parts": [
+              {
+                "text": "Does the Tripod Lite support 4K video cameras?"
+              }
+            ],
+            "role": "user"
+          },
+          "final_response": {
+            "parts": [
+              {
+                "text": "Yes, the Tripod Lite supports cameras up to 5kg, including 4K DSLR models."
+              }
+            ],
+            "role": "model"
+          }
+        }
+      ],
+      "session_input": {
+        "app_name": "sales_support_agent",
+        "user_id": "user"
+      },
+      "creation_timestamp": 1775018586.6786869
+    },
+    {
+      "eval_id": "case_2",
+      "conversation": [
+        {
+          "invocation_id": "4f65c55b-67d3-488b-90f6-4cf3cfa74864",
+          "user_content": {
+            "parts": [
+              {
+                "text": "What is the return policy for the LensPro 50mm?"
+              }
+            ],
+            "role": "user"
+          },
+          "final_response": {
+            "parts": [
+              {
+                "text": "The LensPro 50mm has a 30-day return policy with full refund if unopened."
+              }
+            ],
+            "role": "model"
+          }
+        }
+      ],
+      "session_input": {
+        "app_name": "sales_support_agent",
+        "user_id": "user"
+      },
+      "creation_timestamp": 1775018586.678693
+    },
+    {
+      "eval_id": "case_3",
+      "conversation": [
+        {
+          "invocation_id": "e2e47f0d-b057-4a27-857f-831fd0f4b143",
+          "user_content": {
+            "parts": [
+              {
+                "text": "Is the FlashKit Pro compatible with third-party cameras?"
+              }
+            ],
+            "role": "user"
+          },
+          "final_response": {
+            "parts": [
+              {
+                "text": "Yes, the FlashKit Pro is compatible with Canon, Nikon, Sony, and Fujifilm mounts."
+              }
+            ],
+            "role": "model"
+          }
+        }
+      ],
+      "session_input": {
+        "app_name": "sales_support_agent",
+        "user_id": "user"
+      },
+      "creation_timestamp": 1775018586.6786969
+    },
+    {
+      "eval_id": "case_4",
+      "conversation": [
+        {
+          "invocation_id": "c287b953-e51c-4aa4-b04c-1e453584bfdf",
+          "user_content": {
+            "parts": [
+              {
+                "text": "What is the battery life of the ProCamera X1?"
+              }
+            ],
+            "role": "user"
+          },
+          "final_response": {
+            "parts": [
+              {
+                "text": "The ProCamera X1 battery lasts approximately 800 shots per charge under standard use."
+              }
+            ],
+            "role": "model"
+          }
+        }
+      ],
+      "session_input": {
+        "app_name": "sales_support_agent",
+        "user_id": "user"
+      },
+      "creation_timestamp": 1775018586.6787012
+    }
+  ],
+  "creation_timestamp": 1775018586.678702
+}

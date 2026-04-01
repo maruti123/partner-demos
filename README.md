@@ -19,7 +19,7 @@ The February release focuses on **BigQuery Global Queries**, **Direct Governance
 ---
 
 ## March 2026 Suite (Preview)
-The March release showcases **BigQuery AI Functions**, **ADK A2A Interoperability**, **SecOps Automation**, and **Enterprise Data Discovery** across 7 demos.
+The March release showcases **BigQuery AI Functions**, **ADK A2A Interoperability**, and **Enterprise Data Discovery** across 6 demos.
 
 ### BigQuery & Data Intelligence
 
@@ -36,12 +36,6 @@ The March release showcases **BigQuery AI Functions**, **ADK A2A Interoperabilit
 | [A2A Protocol](./partner-demos-march-2026/adk_multi_agent_a2a_demo.ipynb) | Vertex AI (Gemini 3.1 Pro) · ADK: [A2A Protocol](https://google.github.io/adk-docs/a2a/intro/), `RemoteA2aAgent`, `to_a2a()`, agent card discovery | Cross-service agent collaboration: a manager agent delegates to a remote specialist over the A2A handshake |
 | [Enterprise Search Approaches](./partner-demos-march-2026/adk_skills_discovery_engine_demo.ipynb) | [Discovery Engine](https://cloud.google.com/generative-ai-app-builder/docs/enterprise-search-introduction) (Vertex AI Search), BigQuery [`AI.EMBED`](https://cloud.google.com/bigquery/docs/reference/standard-sql/bigqueryml-syntax-generate-embedding) & [`AI.SIMILARITY`](https://cloud.google.com/bigquery/docs/reference/standard-sql/bigqueryml-syntax-similarity) · ADK: SkillToolset, DiscoveryEngineSearchTool, BigQueryToolset, ExecuteBashTool | Three search patterns compared: BQ vector similarity (RAG), Discovery Engine search, and agentic search (Bash) |
 | [ADK Prompt Optimizer](./partner-demos-march-2026/adk_prompt_optimizer_demo.ipynb) | Vertex AI (Gemini 3.1 Pro) · ADK: [`adk optimize` & GEPA](https://github.com/google/adk-python/releases/tag/v1.27.0) root agent optimizer | Systematic prompt engineering: evaluate baseline vs. optimized agent instructions against ground truth |
-
-### Industry Solutions
-
-| Demo | GCP / ADK Features | Key Takeaway |
-|------|-------------------|--------------|
-| [SecOps Agentic Automation](./partner-demos-march-2026/secops_agentic_automation_demo.ipynb) | [Google SecOps — Agentic Automation](https://docs.cloud.google.com/chronicle/docs/soar/respond/working-with-playbooks/agentic-automation) (Chronicle SOAR), Vertex AI · ADK: Runner, [Slack integration](https://github.com/google/adk-python/releases/tag/v1.28.0) (opt-in) | Hybrid workflow: AI agent investigates threat severity, deterministic code blocks IP; Slack alerts if configured (ADK 1.28) |
 
 > **Common to all March demos**: [ADK v1.28.0](https://github.com/google/adk-python/releases/tag/v1.28.0), Runner pattern with `InMemorySessionService`, Vertex AI auth (`GOOGLE_GENAI_USE_VERTEXAI`), Gemini 3.1 Pro (Preview).
 
